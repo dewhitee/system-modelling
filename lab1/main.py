@@ -79,7 +79,11 @@ def start_simulation(overall_simulation_time=500):
         nonlocal delta_time, queue, departure_time, idle_start
 
         delta_time = departure_time
+
+        # Remove current class from the queue
         current_class = queue.pop(0)
+
+        # Idle if queue is empty, otherwise update departure_time
         if len(queue) == 0:
             departure_time = float('inf')
             idle_start = delta_time
